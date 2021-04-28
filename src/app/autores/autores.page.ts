@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController,  } from '@ionic/angular';
 import { Autor } from './autor.model';
 import { AutorService } from './autor.service';
 
@@ -14,6 +14,7 @@ export class AutoresPage implements OnInit {
 
   constructor(
     private alertController: AlertController,
+    private toastController: ToastController,
     private autorService: AutorService
   ) {
     this.listar();
@@ -22,7 +23,16 @@ export class AutoresPage implements OnInit {
   ngOnInit() {}
 
   listar() {
-    this.autores = this.autorService.getAutores();
+    this.autorService
+      .getAutores()
+      .subscribe(
+        (dados) => {
+          this.autores = dados;
+        }, 
+        (erro) => {
+          console.error(erro);
+        }
+      );
   }
 
   confirmarExclusao(autor: Autor) {
@@ -42,7 +52,19 @@ export class AutoresPage implements OnInit {
   }
 
   private excluir(autor: Autor) {
-    this.autorService.excluir(autor.id);
-    this.listar();
+    this.autorService
+      .excluir(autor.id)
+      .subscribe(
+        () => this.listar(),
+        (erro) => {
+          console.error(erro);
+          this.toastController.create({
+            message: `Não foi possível excluir o autor ${autor.nome}`,
+            duration: 5000,
+            keyboardClose: true,
+            color: 'danger'
+          }).then(t => t.present());
+        }
+      );
   }
 }
