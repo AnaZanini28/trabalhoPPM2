@@ -1,3 +1,16 @@
 {
-  "autores": []
+  "autores": [
+    {
+      "nome": "ana",
+      "dataNascimento": "2021-04-28T21:01:12.051-03:00",
+      "genero": "F",
+      "id": 2
+    },
+    {
+      "nome": "diego",
+      "dataNascimento": "1993-09-14T16:17:21.402-03:00",
+      "genero": "F",
+      "id": 3
+    }
+  ]
 }
