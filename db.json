@@ -1,16 +1,69 @@
 {
   "autores": [
     {
-      "nome": "ana",
-      "dataNascimento": "2021-04-28T21:01:12.051-03:00",
+      "nome": "J.R.R. Tolkien",
+      "dataNascimento": "1930-01-03T10:42:31.550-03:00",
+      "genero": "M",
+      "id": 1
+    },
+    {
+      "nome": "Anne Frank",
+      "dataNascimento": "1930-06-12T10:49:52.397-03:00",
       "genero": "F",
+      "id": 4
+    },
+    {
+      "nome": "J. K. Rowling",
+      "dataNascimento": "1965-07-30T10:50:26.174-03:00",
+      "genero": "F",
+      "id": 5
+    }
+  ],
+  "livros": [
+    {
+      "titulo": "O diário de Anne Frank",
+      "isbn": 8501044458,
+      "paginas": 352,
+      "autores": "Anne Frank",
+      "preco": 44.69,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/51FcYCljAJL._SX321_BO1,204,203,200_.jpg",
+      "id": 1
+    },
+    {
+      "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+      "isbn": 8595084750,
+      "paginas": 576,
+      "autores": "J.R.R. Tolkien",
+      "preco": 38.9,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/41UsJRucm4L._SX325_BO1,204,203,200_.jpg",
       "id": 2
     },
     {
-      "nome": "diego",
-      "dataNascimento": "1993-09-14T16:17:21.402-03:00",
-      "genero": "F",
+      "titulo": "O Senhor dos Anéis: As duas torres ",
+      "isbn": 8595084769,
+      "paginas": 464,
+      "autores": "J.R.R. Tolkien",
+      "preco": 41.59,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/410u822DrnL._SX325_BO1,204,203,200_.jpg",
       "id": 3
+    },
+    {
+      "titulo": "Harry Potter e a Pedra Filosofal",
+      "isbn": 8532530788,
+      "paginas": 208,
+      "autores": "J. K. Rowling",
+      "preco": 26.89,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/416vIJ9jCOL._SX346_BO1,204,203,200_.jpg",
+      "id": 5
+    },
+    {
+      "titulo": "Harry Potter e a Câmara Secreta",
+      "isbn": 8532530796,
+      "paginas": 224,
+      "autores": "J. K. Rowling",
+      "preco": 26.09,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/51SnGLrrJcL._SX346_BO1,204,203,200_.jpg",
+      "id": 6
     }
   ]
 }

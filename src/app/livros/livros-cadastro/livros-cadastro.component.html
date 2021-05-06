@@ -1,0 +1,103 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Cadastro de livros</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+<form [formGroup]="livrosForm"> 
+ 
+    <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input type="text" formControlName="titulo"></ion-input>
+
+        <ion-text color="danger" *ngIf="titulo.errors">
+            <small *ngIf="titulo.errors.required && (titulo.dirty || titulo.touched)">
+                O campo titulo é obrigatório
+            </small>
+            <small *ngIf="titulo.errors.minlength && (titulo.dirty || titulo.touched)">
+                O campo titulo deve conter no mínimo {{titulo.errors.minlength.requiredLength}} caracteres
+            </small>
+            <small *ngIf="titulo.errors.maxlength && (titulo.dirty || titulo.touched)">
+                O campo titulo deve conter no máximo {{titulo.errors.maxlength.requiredLength}} caracteres
+            </small>
+        </ion-text>    
+
+    </ion-item>  
+ 
+    <ion-item>
+        <ion-label position="floating">ISBN</ion-label>
+        <ion-input type="number" formControlName="isbn" ></ion-input>
+        
+        <ion-text color="danger" *ngIf="isbn.errors">
+            <small *ngIf="isbn.errors.required && (isbn.dirty || isbn.touched)">
+                O campo ISBN é obrigatório
+            </small>  
+        </ion-text> 
+
+    </ion-item> 
+ 
+    <ion-item>
+        <ion-label position="floating">Nº de Páginas</ion-label>
+        <ion-input type="number" formControlName="paginas"></ion-input>
+
+        <ion-text color="danger" *ngIf="paginas.errors">
+            <small *ngIf="paginas.errors.required && (paginas.dirty || paginas.touched)">
+                O campo nº de páginas é obrigatório
+            </small>  
+        </ion-text> 
+
+    </ion-item>  
+ 
+    <ion-list>
+        <ion-item>
+            <ion-label>Autores</ion-label>
+            <ion-select placeholder="Selecione um autor" formControlName="autores" >
+                <ion-select-option *ngFor="let autor of autores" value="{{autor.nome}}" >{{autor.nome}}</ion-select-option> 
+            </ion-select>
+      </ion-item>
+    </ion-list> 
+
+    <ion-item>
+        <ion-label position="floating">Preço</ion-label>
+        <ion-input type="number" formControlName="preco"></ion-input>
+        
+        <ion-text color="danger" *ngIf="preco.errors">
+            <small *ngIf="preco.errors.required && (preco.dirty || preco.touched)">
+                O campo valor é obrigatório
+            </small>  
+        </ion-text>   
+
+    </ion-item> 
+    
+    <ion-item>
+        <ion-label position="floating">Imagem (url) </ion-label>
+        <ion-input type="text" formControlName="foto"></ion-input>
+
+        <ion-text color="danger" *ngIf="foto.errors">
+            <small *ngIf="foto.errors.required && (foto.dirty || foto.touched)">
+                O campo foto é obrigatório
+            </small> 
+            <small *ngIf="foto.errors.minlength && (foto.dirty || foto.touched)">
+                O campo foto deve conter no mínimo {{foto.errors.minlength.requiredLength}} caracteres
+            </small>
+            <small *ngIf="foto.errors.maxlength && (foto.dirty || foto.touched)">
+                O campo foto deve conter no máximo {{foto.errors.maxlength.requiredLength}} caracteres
+            </small> 
+        </ion-text>    
+    </ion-item> 
+     
+    
+    <ion-fab vertical="bottom"
+            horizontal="end">
+            <ion-fab-button (click)="salvar()" [disabled]="!livrosForm.valid" >
+                <ion-icon name="checkmark-outline"></ion-icon>
+            </ion-fab-button>
+    </ion-fab>
+</form>
+
+</ion-content> 

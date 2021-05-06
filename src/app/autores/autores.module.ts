@@ -21,4 +21,5 @@ import { AutoresCadastroComponent } from './autores-cadastro/autores-cadastro.co
   ],
   declarations: [AutoresPage, AutoresCadastroComponent]
 })
+
 export class AutoresPageModule {}
