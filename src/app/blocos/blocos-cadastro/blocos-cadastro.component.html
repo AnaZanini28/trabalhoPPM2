@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Cadastro de blocos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form [formGroup]="blocosForm">
+    
+    <ion-item>
+        <ion-label position="floating">Nº / nome do bloco: </ion-label>
+        <ion-input formControlName="numero"
+            type="text">
+        </ion-input> 
+
+        <ion-text color="danger" *ngIf="numero.errors">
+            <small *ngIf="numero.errors.required && (numero.dirty || numero.touched)">
+                O campo Nº / nome do bloco é obrigatório
+            </small>
+            <small *ngIf="numero.errors.minlength && (numero.dirty || numero.touched)">
+                O campo Nº / nome do bloco deve conter no mínimo {{numero.errors.minlength.requiredLength}} caracteres
+            </small> 
+            <small *ngIf="numero.errors.maxlength && (numero.dirty || numero.touched)">
+                O campo campo Nº / nome do bloco deve conter no máximo {{numero.errors.maxlength.requiredLength}} caracteres
+            </small>
+        </ion-text>       
+    </ion-item>
+
+    <ion-item >
+        <ion-label>Qtd de apartamentos</ion-label>
+        <ion-select placeholder="Selecionar"  formControlName="qtd">
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="5">5</ion-select-option>
+          <ion-select-option value="6">6</ion-select-option>
+          <ion-select-option value="7">7</ion-select-option>
+          <ion-select-option value="8">8</ion-select-option>
+          <ion-select-option value="9">9</ion-select-option>
+          <ion-select-option value="10">10</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Sindico </ion-label>
+        <ion-input formControlName="sindico"
+            type="text">
+        </ion-input>  
+
+        <ion-text color="danger" *ngIf="sindico.errors">
+            <small *ngIf="sindico.errors.required && (sindico.dirty || sindico.touched)">
+                O campo sindico do bloco é obrigatório
+            </small>
+            <small *ngIf="sindico.errors.minlength && (sindico.dirty || sindico.touched)">
+                O campo sindico deve conter no mínimo {{sindico.errors.minlength.requiredLength}} caracteres
+            </small> 
+            <small *ngIf="sindico.errors.maxlength && (sindico.dirty || sindico.touched)">
+                O campo sindico deve conter no máximo {{sindico.errors.maxlength.requiredLength}} caracteres
+            </small>
+        </ion-text>  
+
+    </ion-item>
+
+    <ion-toggle color="primary" formControlName="garagem"> </ion-toggle>Tem geragem? 
+<br>
+
+    <ion-toggle color="primary" formControlName="pet"> </ion-toggle>Permite pet? 
+         
+    <ion-fab vertical="bottom"
+              horizontal="end">
+            <ion-fab-button (click)="salvar()" [disabled]="!blocosForm.valid">
+                <ion-icon name="checkmark-outline" ></ion-icon>
+            </ion-fab-button>
+    </ion-fab>
+  
+  </form>
+    
+</ion-content>

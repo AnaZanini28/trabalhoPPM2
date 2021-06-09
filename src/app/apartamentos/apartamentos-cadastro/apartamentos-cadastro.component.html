@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Cadastro de apartamentos</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+
+<form [formGroup]="apartamentosForm" >
+  
+  <ion-list>
+    <ion-item>
+        <ion-label>Morador</ion-label>
+        <ion-select placeholder="Selecione um morador" formControlName="nome" >
+            <ion-select-option *ngFor="let morador of moradores" value="{{morador.nome}}" >{{morador.nome}}</ion-select-option> 
+        </ion-select>
+  </ion-item>
+</ion-list>  
+
+<ion-list>
+  <ion-item >
+      <ion-label>Bloco</ion-label>
+      <ion-select placeholder="Selecione um bloco" formControlName="bloco" >
+          <ion-select-option *ngFor="let bloco of blocos" value="{{bloco.numero}}" >{{bloco.numero}}</ion-select-option> 
+      </ion-select>
+</ion-item>
+</ion-list>    
+ 
+<ion-item>
+  <ion-label position="floating">Nº do apartamento: </ion-label>
+  <ion-input formControlName="numero"
+      type="text">
+  </ion-input> 
+  
+  <ion-text color="danger" *ngIf="numero.errors">
+    <small *ngIf="numero.errors.required && (numero.dirty || numero.touched)">
+        O campo numero é obrigatório
+    </small>
+    <small *ngIf="numero.errors.minlength && (numero.dirty || numero.touched)">
+        O campo numero deve conter no mínimo {{numero.errors.minlength.requiredLength}} caracteres
+    </small>
+    <small *ngIf="numero.errors.maxlength && (numero.dirty || numero.touched)">
+        O campo numero deve conter no máximo {{numero.errors.maxlength.requiredLength}} caracteres
+    </small>
+  </ion-text>    
+
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Quantas pessoas moram? </ion-label>
+  <ion-input formControlName="pessoas"
+      type="text">
+  </ion-input>  
+  
+  <ion-text color="danger" *ngIf="pessoas.errors">
+    <small *ngIf="pessoas.errors.required && (pessoas.dirty || pessoas.touched)">
+        O campo quantidade de pessoas é obrigatório
+    </small> 
+  </ion-text>    
+
+</ion-item>
+
+<ion-list >
+  <ion-radio-group  formControlName="pet">
+    <ion-list-header>
+      <ion-label>Possui pet?</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Sim</ion-label>
+      <ion-radio slot="start" value="Sim"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Não</ion-label>
+      <ion-radio slot="start" value="Nao"></ion-radio>
+    </ion-item>
+ 
+  </ion-radio-group>
+</ion-list> 
+ 
+<p> Se sim, qual? </p>
+
+<ion-segment formControlName="qual"> 
+  <ion-segment-button value="nenhum">
+    <ion-label>Não tenho</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="cachorro">
+    <ion-label>Cachorro</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="gato">
+    <ion-label>Gato</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="passaro">
+    <ion-label>Passaro</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="outro">
+    <ion-label>Outro</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+
+  <ion-fab vertical="bottom"
+            horizontal="end">
+          <ion-fab-button (click)="salvar()">
+              <ion-icon name="checkmark-outline"></ion-icon>
+          </ion-fab-button>
+  </ion-fab>
+
+</form>
+  
+</ion-content>

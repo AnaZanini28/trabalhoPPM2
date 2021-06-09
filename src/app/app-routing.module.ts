@@ -10,15 +10,20 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+  }, 
   {
-    path: 'livros',
-    loadChildren: () => import('./livros/livros.module').then( m => m.LivrosPageModule)
-  },
+    path: 'moradores',
+    loadChildren: () => import('./moradores/moradores.module').then( m => m.MoradoresPageModule)
+  }, 
   {
-    path: 'autores',
-    loadChildren: () => import('./autores/autores.module').then( m => m.AutoresPageModule)
+    path: 'blocos',
+    loadChildren: () => import('./blocos/blocos.module').then( m => m.BlocosPageModule)
+  }, 
+  {
+    path: 'apartamentos',
+    loadChildren: () => import('./apartamentos/apartamentos.module').then( m => m.ApartamentosPageModule)
   }
+   
 ];
 
 @NgModule({
