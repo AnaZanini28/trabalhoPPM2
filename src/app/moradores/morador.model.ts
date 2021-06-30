@@ -5,7 +5,7 @@ export class Moradores {
     nome: string;
     cpf: string;
     celular: string;
-    dataNascimento: Date;
+    dataNascimento: Date | string;
     genero: Genero; 
     icone: string;
 }

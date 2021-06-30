@@ -13,8 +13,8 @@
   
   <ion-list>
     <ion-item>
-        <ion-label>Morador</ion-label>
-        <ion-select placeholder="Selecione um morador" formControlName="nome" >
+        <ion-label>Proprietário</ion-label>
+        <ion-select placeholder="Selecione um proprietário" formControlName="nome" >
             <ion-select-option *ngFor="let morador of moradores" value="{{morador.nome}}" >{{morador.nome}}</ion-select-option> 
         </ion-select>
   </ion-item>
@@ -105,7 +105,7 @@
 
   <ion-fab vertical="bottom"
             horizontal="end">
-          <ion-fab-button (click)="salvar()">
+          <ion-fab-button (click)="salvar()"  [disabled]="!apartamentosForm.valid">
               <ion-icon name="checkmark-outline"></ion-icon>
           </ion-fab-button>
   </ion-fab>

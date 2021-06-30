@@ -8,7 +8,7 @@ import { Blocos } from './bloco.model';
 })
 export class BlocosService {
   
-  private url = 'http://localhost:3000/blocos';
+  private url = 'http://localhost:8080/apart-api-1.0.0/resources/blocos';
 
   constructor(
     private httpClient: HttpClient

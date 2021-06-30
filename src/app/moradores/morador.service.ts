@@ -8,7 +8,7 @@ import { Moradores } from './morador.model';
 })
 export class MoradoresService {
   
-  private url = 'http://localhost:3000/moradores';
+  private url = 'http://localhost:8080/apart-api-1.0.0/resources/moradores';
 
   constructor(
     private httpClient: HttpClient

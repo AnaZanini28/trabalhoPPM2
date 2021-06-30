@@ -13,6 +13,35 @@ import { MoradoresService } from '../morador.service';
 })
 export class MoradoresCadastroComponent implements OnInit {
   
+  mesesAbreviados = [
+    'Jan',
+    'Fev',
+    'Mar',
+    'Abr',
+    'Mai',
+    'Jun',
+    'Jul',
+    'Ago',
+    'Set',
+    'Out',
+    'Nov',
+    'Dez',
+  ];
+  meses = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro',
+  ];
+  
   moradorId: number;
   moradoresForm: FormGroup;
 
@@ -74,12 +103,13 @@ export class MoradoresCadastroComponent implements OnInit {
 
   salvar() {
     const morador: Moradores = {...this.moradoresForm.value, id: this.moradorId}
+   morador.dataNascimento = morador.dataNascimento.toString().split('T')[0];
     this.moradorService.salvar(morador).subscribe(
       () => this.router.navigate(['moradores']),
       (erro) => {
         console.error(erro);
         this.toastController.create({
-          message: `Não foi possível salvar o morador ${morador.nome}`,
+          message: `Não foi possível salvar o proprietário`+erro.error ,
           duration: 5000,
           keyboardClose: true,
           color: 'danger'

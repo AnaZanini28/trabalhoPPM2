@@ -34,7 +34,7 @@ export class ApartamentosCadastroComponent implements OnInit {
       id: null,
       nome: '',
       bloco: '',
-      numero: '',  
+      numero: 0,  
       pessoas: 1,   
       pet: '', 
       qual: ''   
@@ -62,15 +62,15 @@ export class ApartamentosCadastroComponent implements OnInit {
 
   initializaFormulario(apartamento: Apartamentos) {
     this.apartamentosForm = new FormGroup({
-      nome: new FormControl(apartamento.nome), 
-      bloco: new FormControl(apartamento.bloco),  
+      nome: new FormControl(apartamento.nome, Validators.required), 
+      bloco: new FormControl(apartamento.bloco, Validators.required),  
       numero: new FormControl(apartamento.numero, [
         Validators.required, 
-        Validators.minLength(2),
+        Validators.minLength(3),
         Validators.maxLength(15),
       ]), 
       pessoas: new FormControl(apartamento.pessoas, Validators.required), 
-      pet: new FormControl(apartamento.pet), 
+      pet: new FormControl(apartamento.pet, Validators.required), 
       qual: new FormControl(apartamento.qual), 
     })
   }   
@@ -82,7 +82,7 @@ export class ApartamentosCadastroComponent implements OnInit {
       (erro) => {
         console.error(erro);
         this.toastController.create({
-          message: `Não foi possível salvar o apartamento ${apartamento.nome}`,
+          message: `Não foi possível salvar o apartamento`+erro.error,
           duration: 5000,
           keyboardClose: true,
           color: 'danger'

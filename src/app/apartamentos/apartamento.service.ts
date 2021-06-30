@@ -8,7 +8,7 @@ import { Apartamentos } from './apartamento.model';
 })
 export class ApartamentosService {
   
-  private url = 'http://localhost:3000/apartamentos';
+  private url = 'http://localhost:8080/apart-api-1.0.0/resources/apartamentos';
 
   constructor(
     private httpClient: HttpClient

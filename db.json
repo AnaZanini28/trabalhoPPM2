@@ -1,34 +1,5 @@
 {
-  "moradores": [
-    {
-      "nome": "Diego",
-      "dataNascimento": "1993-09-14T21:32:28.884-03:00",
-      "cpf": "091.944.829-18",
-      "celular": "(48)3478-4109",
-      "genero": "M",
-      "icone": "https://i.pinimg.com/736x/22/db/a2/22dba285dc4ee5f90f63a0f9931c7315.jpg",
-      "id": 3
-    }
-  ],
-  "blocos": [
-    {
-      "numero": "Bloco 101",
-      "qtd": "5",
-      "sindico": "Nome do sindico",
-      "garagem": "",
-      "pet": "",
-      "id": 1
-    }
-  ],
-  "apartamentos": [
-    {
-      "nome": "Diego",
-      "bloco": "Bloco 101",
-      "numero": "1001",
-      "pessoas": 1,
-      "pet": "Sim",
-      "qual": "cachorro",
-      "id": 1
-    }
-  ]
+  "moradores": [],
+  "blocos": [],
+  "apartamentos": [ ]
 }
